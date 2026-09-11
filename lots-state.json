@@ -4,35 +4,43 @@
     "title": "Lot 14 · Mixed fed steers",
     "price": 18400,
     "step": 100,
-    "end": "2026-09-11T23:45:00-06:00",
+    "end": "2026-09-12T18:45:00-06:00",
     "bidder": null,
-    "status": "live"
+    "seller": "highplains",
+    "status": "live",
+    "feePaid": true
   },
   "21": {
     "id": "21",
     "title": "Lot 21 · Market hogs",
     "price": 6200,
     "step": 50,
-    "end": "2026-09-12T00:10:00-06:00",
+    "end": "2026-09-12T19:10:00-06:00",
     "bidder": null,
-    "status": "live"
+    "seller": "plainsfeed",
+    "status": "live",
+    "feePaid": true
   },
   "28": {
     "id": "28",
     "title": "Lot 28 · Beef sides, hanging",
     "price": 4800,
     "step": 50,
-    "end": "2026-09-12T10:00:00-06:00",
+    "end": "2026-09-13T10:00:00-06:00",
     "bidder": null,
-    "status": "soon"
+    "seller": "highplains",
+    "status": "soon",
+    "feePaid": true
   },
   "31": {
     "id": "31",
     "title": "Lot 31 · Cull cows",
     "price": 9100,
     "step": 50,
-    "end": "2026-09-12T14:30:00-06:00",
+    "end": "2026-09-13T14:30:00-06:00",
     "bidder": null,
-    "status": "soon"
+    "seller": "southslope",
+    "status": "soon",
+    "feePaid": true
   }
 }

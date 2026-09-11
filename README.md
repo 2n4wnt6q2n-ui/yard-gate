@@ -1,24 +1,23 @@
 # Yard Gate
 
-Wholesale meat auction board. Farmers apply for $20 and keep the hammer. Buyers bid over a WebSocket clerk.
+Wholesale meat auction. Farmers apply for $20 and keep the hammer. Buyers bid over a WebSocket clerk.
 
-Public preview (static only, no live bids): https://yard-gate-ernesto22.vercel.app
+Repo: https://github.com/2n4wnt6q2n-ui/yard-gate
+Static preview: https://yard-gate-ernesto22.vercel.app
 
-## Run the clerk (Hetzner / any VPS)
+## On this repo
+
+- Clerk: `server.js`, `ws-lite.js`, `mail.js`, `totp.js`, `secret-store.js`
+- Desk: `join.html`, `desk.html`, `verify.html`, `account.js`, `privacy.html`
+- Board: `index.html`, `lots.html`, `apply.html`, `buy.html`, `auction.js`
+- Vercel: install command `echo skip-install` in `vercel.json`
+
+Secrets are not in git: `accounts.json`, `sessions.json`, `totp.key`, `totp-secrets.json`.
+
+## VPS
 
 ```bash
-sudo mkdir -p /var/www
 sudo git clone https://github.com/2n4wnt6q2n-ui/yard-gate.git /var/www/yard-gate
 cd /var/www/yard-gate
 sudo bash deploy/setup.sh
 ```
-
-Then open `http://YOUR_SERVER_IP`. Bids on two browsers share the same clock.
-
-Local:
-
-```bash
-node server.js
-```
-
-Opens at http://localhost:8787
