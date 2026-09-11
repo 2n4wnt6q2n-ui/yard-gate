@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Confirm email — Yard Gate</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner"><a class="logo" href="index.html">Yard Gate</a></div>
+  </header>
+  <main class="page-intro">
+    <div class="wrap">
+      <p class="eyebrow">Email</p>
+      <h1 id="title">Confirming your desk…</h1>
+      <p class="lead" id="msg">Hold on.</p>
+      <p><a class="btn btn-primary" href="desk.html">Go to the desk</a></p>
+    </div>
+  </main>
+  <script src="account.js"></script>
+  <script>
+    var token = new URLSearchParams(location.search).get("token") || "";
+    var title = document.getElementById("title");
+    var msg = document.getElementById("msg");
+    if (!token) { title.textContent = "Missing confirm link."; msg.textContent = "Open the note we sent to your email."; }
+    else {
+      fetch("/api/verify?token=" + encodeURIComponent(token)).then(function (res) {
+        return res.json().then(function (data) {
+          if (!res.ok) throw new Error(data.error || "Could not confirm");
+          try { localStorage.setItem("yardgate-session", JSON.stringify(data)); } catch (e) {}
+          title.textContent = "Email confirmed.";
+          msg.textContent = "You are signed in as @" + data.user.username + ". Name and address stay hidden on the board.";
+        });
+      }).catch(function (ex) { title.textContent = "That link did not work."; msg.textContent = ex.message; });
+    }
+  </script>
+</body>
+</html>
