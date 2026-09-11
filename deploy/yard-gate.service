@@ -1,0 +1,15 @@
+[Unit]
+Description=Yard Gate auction clerk
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/var/www/yard-gate
+Environment=PORT=8787
+ExecStart=/usr/bin/node server.js
+Restart=always
+RestartSec=3
+User=www-data
+
+[Install]
+WantedBy=multi-user.target

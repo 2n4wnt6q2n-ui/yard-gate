@@ -1,0 +1,38 @@
+{
+  "14": {
+    "id": "14",
+    "title": "Lot 14 · Mixed fed steers",
+    "price": 18400,
+    "step": 100,
+    "end": "2026-09-11T23:45:00-06:00",
+    "bidder": null,
+    "status": "live"
+  },
+  "21": {
+    "id": "21",
+    "title": "Lot 21 · Market hogs",
+    "price": 6200,
+    "step": 50,
+    "end": "2026-09-12T00:10:00-06:00",
+    "bidder": null,
+    "status": "live"
+  },
+  "28": {
+    "id": "28",
+    "title": "Lot 28 · Beef sides, hanging",
+    "price": 4800,
+    "step": 50,
+    "end": "2026-09-12T10:00:00-06:00",
+    "bidder": null,
+    "status": "soon"
+  },
+  "31": {
+    "id": "31",
+    "title": "Lot 31 · Cull cows",
+    "price": 9100,
+    "step": 50,
+    "end": "2026-09-12T14:30:00-06:00",
+    "bidder": null,
+    "status": "soon"
+  }
+}
