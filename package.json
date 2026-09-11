@@ -1,9 +1,8 @@
 {
   "name": "yard-gate",
   "private": true,
-  "description": "Yard Gate wholesale auction board with WebSocket bidding",
-  "main": "server.js",
-  "scripts": {
-    "start": "node server.js"
+  "description": "Yard Gate wholesale auction board",
+  "engines": {
+    "node": "20.x"
   }
 }

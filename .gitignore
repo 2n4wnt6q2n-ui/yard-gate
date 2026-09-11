@@ -1,2 +1,7 @@
 node_modules/
 *.log
+accounts.json
+sessions.json
+verify-outbox.json
+totp-secrets.json
+totp.key
