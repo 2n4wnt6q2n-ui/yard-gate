@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Join the desk — Yard Gate</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="logo" href="index.html">Yard Gate <span>Auction</span></a>
+      <nav class="site-nav">
+        <a href="index.html">Home</a>
+        <a href="lots.html">Live lots</a>
+        <a href="join.html" aria-current="page">Join</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main">
+    <header class="page-intro">
+      <div class="wrap">
+        <p class="eyebrow">Accounts</p>
+        <h1>Open a desk.</h1>
+        <p class="lead">Buyers pick personal use or business. Only @username is public. <a href="privacy.html">Privacy</a>.</p>
+      </div>
+    </header>
+    <section class="section">
+      <div class="wrap">
+        <form class="form" id="join-form">
+          <div class="field"><label for="role">Desk type</label>
+            <select id="role" required><option value="buyer">Buyer</option><option value="seller">Seller / farmer</option></select></div>
+          <div class="field" id="buy-use-field"><label for="buyUse">I am buying this stock for</label>
+            <select id="buyUse"><option value="personal">Personal use</option><option value="business">Business / wholesale desk</option></select></div>
+          <div class="field"><label for="username">Public username</label><input id="username" required minlength="3"></div>
+          <div class="field"><label for="password">Password</label><input id="password" type="password" required minlength="8"></div>
+          <div class="field"><label for="legalName">Legal name (hidden)</label><input id="legalName" required></div>
+          <div class="field"><label for="address">Address (hidden)</label><input id="address" required></div>
+          <div class="field"><label for="email">Email (hidden)</label><input id="email" type="email" required></div>
+          <div class="field"><label for="phone">Phone (hidden)</label><input id="phone" type="tel"></div>
+          <p class="muted" id="join-error"></p>
+          <button class="btn btn-primary" type="submit">Create account</button>
+          <p><a href="desk.html">Sign in</a></p>
+        </form>
+      </div>
+    </section>
+  </main>
+  <script src="account.js"></script>
+  <script>
+    document.getElementById("role").addEventListener("change", function () {
+      document.getElementById("buy-use-field").hidden = this.value !== "buyer";
+    });
+    document.getElementById("join-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      var err = document.getElementById("join-error");
+      YardGateAccount.register({
+        role: document.getElementById("role").value,
+        username: document.getElementById("username").value,
+        password: document.getElementById("password").value,
+        legalName: document.getElementById("legalName").value,
+        address: document.getElementById("address").value,
+        email: document.getElementById("email").value,
+        phone: document.getElementById("phone").value,
+        buyUse: document.getElementById("buyUse").value
+      }).then(function (data) {
+        if (data.needsVerify) {
+          err.textContent = "Confirm email to finish. ";
+          if (data.verifyUrl) { var a = document.createElement("a"); a.href = data.verifyUrl; a.textContent = "Confirm email"; err.appendChild(a); }
+          return;
+        }
+        location.href = "desk.html";
+      }).catch(function (ex) { err.textContent = ex.message; });
+    });
+  </script>
+</body>
+</html>
