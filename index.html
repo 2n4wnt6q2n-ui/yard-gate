@@ -3,61 +3,50 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Yard Gate — Wholesale meat auction online</title>
-  <meta name="description" content="Online wholesale meat auction. Farmers list lots for a $20 fee and keep the hammer. Buyers bid from the screen.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Source+Serif+4:opsz,wght@8..60,600&display=swap" rel="stylesheet">
+  <title>Yard Gate — Wholesale meat auction</title>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Rye&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <a class="skip" href="#main">Skip to content</a>
   <header class="site-header">
     <div class="wrap header-inner">
       <a class="logo" href="index.html">Yard Gate <span>Auction</span></a>
-      <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
-      <label class="nav-toggle-label" for="nav-toggle" aria-label="Open menu"><span></span></label>
-      <nav class="site-nav" aria-label="Primary">
+      <nav class="site-nav">
         <a href="index.html" aria-current="page">Home</a>
         <a href="lots.html">Live lots</a>
         <a href="apply.html">Sell a lot</a>
         <a href="buy.html">Buy wholesale</a>
-        <a href="contact.html" class="btn btn-primary nav-cta">Contact</a>
+        <a href="join.html">Join</a>
       </nav>
     </div>
   </header>
   <main id="main">
     <section class="hero">
       <div class="wrap">
-        <p class="eyebrow">Wholesale meat · live clock</p>
-        <h1>The auction house on your screen.</h1>
-        <p class="lead">Skip the empty drive to the barn. Twenty dollars to apply. The farmer keeps the rest of the hammer.</p>
-        <div class="hero-actions">
-          <a class="btn btn-live" href="lots.html">Watch live lots</a>
-          <a class="btn btn-ghost" href="apply.html">Apply to sell — $20</a>
-        </div>
+        <p class="eyebrow">Wholesale meat</p>
+        <h1>Put money back in farmer pockets.</h1>
+        <p class="lead">First 20 farmers list for $10, then $20. Guests watch. Bid after a verified account.</p>
+        <form class="search-bar" action="lots.html" method="get">
+          <input name="q" type="search" placeholder="Steers, hogs, hanging beef…">
+          <button class="btn btn-live" type="submit">Search lots</button>
+        </form>
       </div>
     </section>
-    <section class="section">
+    <section class="section section-alt">
       <div class="wrap">
-        <p class="clerk-bar"><span data-ws-status data-state="down">Connecting to the clerk…</span> <span data-ws-error></span></p>
-        <div class="lot-grid">
-          <article class="lot" data-lot="14">
-            <div class="lot-body">
-              <div class="lot-meta"><span class="tag">Live</span><span class="timer" data-end="2026-09-11T23:45:00-06:00">—</span></div>
-              <h3>Lot 14 · Mixed fed steers</h3>
-              <p>Current bid <strong class="price" data-price="18400">$18,400</strong></p>
-              <p class="muted" data-last>Minimum raise $100</p>
-              <div class="bid-row">
-                <input data-offer type="number" min="18500" step="100" placeholder="18500" aria-label="Offer lot 14">
-                <button class="btn btn-live" type="button" data-bid data-step="100">Place bid</button>
-              </div>
-            </div>
-          </article>
-        </div>
+        <p class="eyebrow">High auction</p>
+        <h2>The lot with the high bid.</h2>
+        <article class="lot" data-lot="14">
+          <div class="lot-body">
+            <h3>Lot 14 · Mixed fed steers</h3>
+            <p>Current bid <strong class="price" data-price="18400">$18,400</strong></p>
+            <p><a href="lots.html">Full board</a></p>
+          </div>
+        </article>
       </div>
     </section>
   </main>
+  <script src="account.js"></script>
   <script src="auction.js"></script>
 </body>
 </html>
